@@ -7,6 +7,7 @@ before_install:
 install: true
 script:
 - "./release.sh"
+
 deploy:
   provider: releases
   api_key:
