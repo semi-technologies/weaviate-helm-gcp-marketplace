@@ -1,3 +1,9 @@
+# GCP Marketplace specific
+#
+marketplace:
+  ubbagentImage: replace-me-via-schema-yaml
+  reportingSecretName: replace-me-via-schema-yaml
+
 # Related to the weaviate image
 image:
   # registry where weaviate image is stored

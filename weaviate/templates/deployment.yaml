@@ -42,7 +42,30 @@ spec:
             periodSeconds: 3
           resources:
 {{ toYaml .Values.resources | indent 12 }}
+        - name: ubbagent
+          image: {{ .Values.marketplace.ubbagentImage }}
+          env:
+          - name: AGENT_CONFIG_FILE
+            value: "/etc/ubbagent/config.yaml"
+          - name: AGENT_LOCAL_PORT
+            value: "4567"
+          - name: AGENT_ENCODED_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.marketplace.reportingSecretName }}
+                key: reporting-key
+          - name: AGENT_CONSUMER_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.marketplace.reportingSecretName }}
+                key: consumer-id
+          volumeMounts:
+          - name: ubbagent-config
+            mountPath: /etc/ubbagent
       volumes:
         - name: weaviate-config
           configMap:
             name: weaviate-config
+        - name: ubbagent-config
+          configMap:
+            name: ubbagent-config
