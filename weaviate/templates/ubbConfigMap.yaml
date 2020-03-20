@@ -47,7 +47,7 @@ data:
         identity: gcp
         # The service name is unique to your application and will be
         # provided during onboarding.
-        serviceName: { .Values.marketplace.serviceName }
+        serviceName: {{ .Values.marketplace.serviceName }}
         consumerId: $AGENT_CONSUMER_ID  # From the reporting secret.
       
 
