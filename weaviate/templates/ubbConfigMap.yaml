@@ -17,8 +17,17 @@ data:
     # Metric names should match verbatim the identifiers created
     # during pricing setup.
     metrics:
-    - name: instance_time
-      type: int
+    - name: weaviate_enterprise
+      metric_kind: DELTA
+      value_type: INT64
+      unit: h
+      endpoints:
+      - name: on_disk
+      - name: servicecontrol
+    - name: weaviate_enterprise_plus
+      metric_kind: DELTA
+      value_type: INT64
+      unit: h
       endpoints:
       - name: on_disk
       - name: servicecontrol
