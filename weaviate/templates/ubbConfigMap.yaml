@@ -18,16 +18,12 @@ data:
     # during pricing setup.
     metrics:
     - name: weaviate_enterprise
-      metric_kind: DELTA
-      value_type: INT64
-      unit: h
+      type: int
       endpoints:
       - name: on_disk
       - name: servicecontrol
     - name: weaviate_enterprise_plus
-      metric_kind: DELTA
-      value_type: INT64
-      unit: h
+      type: int
       endpoints:
       - name: on_disk
       - name: servicecontrol
