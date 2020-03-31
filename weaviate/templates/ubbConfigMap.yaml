@@ -59,9 +59,15 @@ data:
     # this example, the heartbeat sends a 60-second value through the
     # "instance_time" metric every minute.
     sources:
-    - name: instance_time_heartbeat
+    - name: weaviate_enterprise_heartbeat
       heartbeat:
-        metric: instance_time
+        metric: weaviate_enterprise
+        intervalSeconds: 60
+        value:
+          int64Value: 60
+    - name: weaviate_enterprise_plus_heartbeat
+      heartbeat:
+        metric: weaviate_enterprise_plus
         intervalSeconds: 60
         value:
           int64Value: 60
