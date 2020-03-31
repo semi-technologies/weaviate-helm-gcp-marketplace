@@ -22,19 +22,16 @@ data:
       endpoints:
       - name: on_disk
       - name: servicecontrol
+      aggregation:
+        bufferSeconds: 60
+
     - name: weaviate_enterprise_plus
       type: int
       endpoints:
       - name: on_disk
       - name: servicecontrol
-
-      # The passthrough marker indicates that no aggregation should
-      # occur for this metric. Reports received are immediately sent
-      # to the reporting endpoint. We use passthrough for the
-      # instance_time metric since reports are generated
-      # automatically by a heartbeat source defined in a later
-      # section.
-      passthrough: {}
+      aggregation:
+        bufferSeconds: 60
 
     # The endpoints section defines where metering data is ultimately
     # sent. Currently supported endpoints include:
