@@ -62,12 +62,12 @@ data:
     - name: weaviate_enterprise_heartbeat
       heartbeat:
         metric: weaviate_enterprise
-        intervalSeconds: 60
+        intervalSeconds: 3600
         value:
-          int64Value: 60
+          int64Value: 1
     - name: weaviate_enterprise_plus_heartbeat
       heartbeat:
         metric: weaviate_enterprise_plus
-        intervalSeconds: 60
+        intervalSeconds: 3600
         value:
-          int64Value: 60
+          int64Value: 1
