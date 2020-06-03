@@ -4,6 +4,7 @@ marketplace:
   ubbagentImage: replace-me-via-schema-yaml
   reportingSecretName: replace-me-via-schema-yaml
   serviceName: replace-me-via-values.yaml
+  metricName: replace-me-via-values.yaml
 
 # Related to the weaviate image
 image:

@@ -17,15 +17,7 @@ data:
     # Metric names should match verbatim the identifiers created
     # during pricing setup.
     metrics:
-    - name: weaviate_enterprise
-      type: int
-      endpoints:
-      - name: on_disk
-      - name: servicecontrol
-      aggregation:
-        bufferSeconds: 60
-
-    - name: weaviate_enterprise_plus
+    - name: {{ .Values.marketplace.metricName }}
       type: int
       endpoints:
       - name: on_disk
@@ -59,15 +51,9 @@ data:
     # this example, the heartbeat sends a 60-second value through the
     # "instance_time" metric every minute.
     sources:
-    - name: weaviate_enterprise_heartbeat
+    - name: {{ .Values.marketplace.metricName -}}_heartbeat
       heartbeat:
-        metric: weaviate_enterprise
-        intervalSeconds: 3600
-        value:
-          int64Value: 1
-    - name: weaviate_enterprise_plus_heartbeat
-      heartbeat:
-        metric: weaviate_enterprise_plus
+        metric: {{ .Values.marketplace.metricName}}
         intervalSeconds: 3600
         value:
           int64Value: 1
