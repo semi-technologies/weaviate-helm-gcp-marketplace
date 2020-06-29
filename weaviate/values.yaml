@@ -5,6 +5,7 @@ marketplace:
   reportingSecretName: replace-me-via-schema-yaml
   serviceName: replace-me-via-values.yaml
   metricName: replace-me-via-values.yaml
+  planSelectionEnum: replace-me-via-schema-yaml # see _helpers.tpl for how this is used
 
 # Related to the weaviate image
 image:

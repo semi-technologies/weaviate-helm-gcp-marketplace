@@ -17,7 +17,7 @@ data:
     # Metric names should match verbatim the identifiers created
     # during pricing setup.
     metrics:
-    - name: {{ .Values.marketplace.metricName }}
+    - name: {{ template "planMetricName" . }}
       type: int
       endpoints:
       - name: on_disk
@@ -51,9 +51,9 @@ data:
     # this example, the heartbeat sends a 60-second value through the
     # "instance_time" metric every minute.
     sources:
-    - name: {{ .Values.marketplace.metricName -}}_heartbeat
+    - name: {{ template "planMetricName" . -}}_heartbeat
       heartbeat:
-        metric: {{ .Values.marketplace.metricName}}
+        metric: {{ template "planMetricName" . }}
         intervalSeconds: 3600
         value:
           int64Value: 1
