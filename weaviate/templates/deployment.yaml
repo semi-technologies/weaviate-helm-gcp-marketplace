@@ -6,6 +6,7 @@ metadata:
     name: weaviate
     app: weaviate
 spec:
+  replicas: {{ .Values.replicas }}
   progressDeadlineSeconds: 1200
   selector:
     matchLabels:
@@ -69,7 +70,7 @@ spec:
       volumes:
         - name: weaviate-config
           configMap:
-            name: weaviate-config
+            {{ if .Values.custom_config_map.enabled }}name: {{ .Values.custom_config_map.name }} {{ else }}name: weaviate-config{{ end }}
         - name: ubbagent-config
           configMap:
             name: ubbagent-config
