@@ -56,26 +56,26 @@ spec:
             port: 8080
           initialDelaySeconds: 3
           periodSeconds: 3
-        - name: ubbagent
-          image: {{ .Values.marketplace.ubbagentImage }}
-          env:
-          - name: AGENT_CONFIG_FILE
-            value: "/etc/ubbagent/config.yaml"
-          - name: AGENT_LOCAL_PORT
-            value: "4567"
-          - name: AGENT_ENCODED_KEY
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.marketplace.reportingSecretName }}
-                key: reporting-key
-          - name: AGENT_CONSUMER_ID
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.marketplace.reportingSecretName }}
-                key: consumer-id
-          volumeMounts:
-          - name: ubbagent-config
-            mountPath: /etc/ubbagent
+      - name: ubbagent
+        image: {{ .Values.marketplace.ubbagentImage }}
+        env:
+        - name: AGENT_CONFIG_FILE
+          value: "/etc/ubbagent/config.yaml"
+        - name: AGENT_LOCAL_PORT
+          value: "4567"
+        - name: AGENT_ENCODED_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.marketplace.reportingSecretName }}
+              key: reporting-key
+        - name: AGENT_CONSUMER_ID
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.marketplace.reportingSecretName }}
+              key: consumer-id
+        volumeMounts:
+        - name: ubbagent-config
+          mountPath: /etc/ubbagent
       volumes:
         - name: weaviate-config
           configMap:
